@@ -3,7 +3,7 @@
 
 
 # LX Notepad
-Angular 2 Notepad (runs on basic HTTP Webserver)
+Angular 2 Notepad
 
 
 Build the project with
