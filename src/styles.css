@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  padding: 15px;
+}
+.sectionnav {
+  margin: 10px 5px 10px 5px;
+}
+
+.sectioneditor {
+  margin: 10px 5px 10px 5px;
+}
+
+#saveNoteButton {
+  margin-top: 10px;
+}
+
+#editortitle {
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 10px;
+  border: 1px solid #D6D6D6;
+  border-radius: 5px;
+}
+
+#nav {
+   padding-left: 0px;
+   padding-right: 0px;
+ }
+
+.navbuttonp {
+  margin: 5px 0;
+}
+
+.navbutton {
+  border: 1px solid gray !important;
+  border-radius: 4px !important;
+}
