@@ -1,6 +1,27 @@
-# Notelx2
+![Screenshot](2019-05-01%2008_37_40-lxnote.tk.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+
+
+# LX Notepad
+Angular 2 Notepad (runs on basic HTTP Webserver)
+
+
+Build the project with
+
+      ng build --prod --base-href /***/***
+
+and upload to your webserver.
+
+
+
+
+
+
+
+
+
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
 ## Development server
 

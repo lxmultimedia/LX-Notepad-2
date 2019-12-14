@@ -22,7 +22,7 @@ export class AppComponent {
         const notesArray = [];
 
         $.getJSON(readScript, function(jsonData) {
-            $.each(jsonData, function (i, val) {
+            $.each(jsonData, (i, val) => {
                 const jsonNote = val.split('|||');
                 const n = new Note(jsonNote[0], jsonNote[1], jsonNote[2]);
                 notesArray.push(n);
@@ -69,7 +69,6 @@ export class AppComponent {
     }
 
     addNote(): void {
-        //const c = this.notes.length + 1;
         const c = this.uuidv4();
         this.notes.push(new Note(c.toString(), 'New Note', 'Text...'));
         this.selectedNote = this.notes[this.notes.length - 1];
@@ -81,9 +80,9 @@ export class AppComponent {
     }
 
     uuidv4() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+          let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
         });
     }
 }
