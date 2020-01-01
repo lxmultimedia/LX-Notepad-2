@@ -21,7 +21,17 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "input" : "./src/php/",
+                "glob": "*",
+                "output": "./php/"
+              },
+              {
+                "input" : "./src/php/notes/",
+                "glob": "*",
+                "output": "./php/notes/"
+              }
             ],
             "styles": [
               "src/styles.css",

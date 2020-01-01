@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { Note } from './models/note';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {Note} from './models/note';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
     appTitle = 'LX Note';
@@ -81,7 +82,7 @@ export class AppComponent {
 
     uuidv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-          let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
           return v.toString(16);
         });
     }
