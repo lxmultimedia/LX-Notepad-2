@@ -5,3 +5,7 @@
 .navbuttonp {
   margin-right: 7px;
 }
+
+.host {
+  white-space: nowrap;
+}
