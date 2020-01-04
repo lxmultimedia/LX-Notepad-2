@@ -4,8 +4,7 @@ import {Note} from '../models/note';
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
 

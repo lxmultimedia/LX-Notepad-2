@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="nav">
     <form class="form-inline">
-      <div *ngIf="notes.length > 0">
+      <span *ngIf="notes.length > 0">
         <app-navbutton *ngFor="let note of notes" [notetitle]="note.title" (clickNote)="onClickNote(note)" (removeNote)="onRemoveNote(note)"></app-navbutton>
-      </div>
+      </span>
       <button type="button" class="btn btn-success btn-sm navbuttonp" (click)="onAddNote()">
         <span class="fa fa-plus"></span>
       </button>

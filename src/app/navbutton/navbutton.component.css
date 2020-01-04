@@ -6,6 +6,6 @@
   margin-right: 7px;
 }
 
-.host {
+:host {
   white-space: nowrap;
 }

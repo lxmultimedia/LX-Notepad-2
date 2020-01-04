@@ -15,8 +15,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         animate(100, style({ transform: 'scale3d(.0, .0, .0)' }))
       ])
     ])
-  ],
-  encapsulation: ViewEncapsulation.None
+  ]
 })
 export class DialogComponent implements OnInit {
   @Input() closable = true;

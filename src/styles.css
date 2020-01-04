@@ -3,6 +3,7 @@
 body {
   padding: 15px;
 }
+
 .sectionnav {
   margin: 10px 5px 10px 5px;
 }
@@ -33,6 +34,5 @@ body {
 }
 
 .navbutton {
-  border: 1px solid gray !important;
   border-radius: 4px !important;
 }
