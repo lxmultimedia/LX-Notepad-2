@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Note} from './models/note';
 
 @Component({
@@ -6,15 +6,17 @@ import {Note} from './models/note';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     appTitle = 'LX Note';
     notes: Note[] = [];
     selectedNote: Note;
-    initalNote: Note = new Note('0', 'Title...', 'Text...');
     showDialog = false;
 
     constructor() {
-        this.loadData();
+    }
+
+    ngOnInit() {
+      this.loadData();
     }
 
     loadData() {
