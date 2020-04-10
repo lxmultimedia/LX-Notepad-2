@@ -1,4 +1,4 @@
-<input id="editortitle" name="title" [(ngModel)] ="noteContent.title">
+<input id="editortitle" name="title" [(ngModel)] ="noteContent.title" (input)="saveNote()">
 <quill-editor [style]="{height: '550px'}" [(ngModel)]="noteContent.text" (onContentChanged)="saveNote()">
   <div quill-editor-toolbar>
     <span class="ql-formats">

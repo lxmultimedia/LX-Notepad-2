@@ -1,3 +1,8 @@
 app-navbutton, app-navbutton + button {
   margin-bottom: 10px;
 }
+
+.navbuttonp {
+  margin: 0px;
+  margin-bottom: 10px;
+}

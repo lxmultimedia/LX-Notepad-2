@@ -10,8 +10,10 @@ import * as $ from 'jquery';
 import { EditorComponent } from './editor/editor.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import {FirebaseService} from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     QuillModule.forRoot()
   ],
-  providers: [],
+  providers: [ FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

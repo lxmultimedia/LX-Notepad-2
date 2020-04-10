@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Note} from './models/note';
+import {FirebaseService} from './services/firebase.service';
 
 @Component({
     selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
     selectedNote: Note;
     showDialog = false;
 
-    constructor() {
+    constructor(private firebaseService: FirebaseService) {
     }
 
     ngOnInit() {
@@ -20,52 +21,54 @@ export class AppComponent implements OnInit {
     }
 
     loadData() {
-        const readScript = 'php/read.php';
-        const notesArray = [];
-
-        $.getJSON(readScript, function(jsonData) {
-            $.each(jsonData, (i, val) => {
-                const jsonNote = val.split('|||');
-                const n = new Note(jsonNote[0], jsonNote[1], jsonNote[2]);
-                notesArray.push(n);
-            });
-
-            this.handleResponse(notesArray);
-        }.bind(this));
+      const notesArray = [];
+      const d = this.firebaseService.getPosts();
+      d.then(docs => {
+        docs.docs.map(doc => doc.data()).forEach(doc => {
+          notesArray.push(new Note(doc.id, doc.title, doc.text));
+        });
+        this.handleResponse(notesArray);
+        }, err => {
+        this.handleResponse([]);
+      });
     }
 
     handleResponse(notesArray) {
-        this.notes = notesArray;
-        if (!this.selectedNote) {
-            this.selectedNote = this.notes[0];
-        }
+      this.notes = notesArray;
+      if (!this.selectedNote) {
+        this.selectedNote = this.notes[0];
+      }
+    }
+
+    saveNote() {
+      const note = {
+        id: this.selectedNote.id,
+        title: this.selectedNote.title,
+        text: this.selectedNote.text
+      }
+      this.firebaseService.createPost(note)
+        .then(
+          res => {
+            this.loadData();
+          }
+        );
     }
 
     clickNote(note: Note): void {
-        this.selectedNote = note;
-    }
-
-    saveNote(): void {
-        const data = new FormData();
-        data.append('id' , this.selectedNote.id);
-        data.append('title' , this.selectedNote.title);
-        data.append('text' , this.selectedNote.text);
-        const xhr = new XMLHttpRequest();
-        xhr.open( 'post', 'php/save.php', true );
-        xhr.send(data);
-        this.loadData();
+      this.selectedNote = note;
     }
 
     removeNote(note: Note) {
-        if (this.notes.length === 1) {
-            this.notes = [];
-        }
-        const data = new FormData();
-        data.append('id', note.id.toString());
-        const xhr = new XMLHttpRequest();
-        xhr.open('post', 'php/delete.php', false);
-        xhr.send(data);
-        this.loadData();
+        this.firebaseService.deletePost(note.id)
+          .then(
+            res => {
+              this.loadData();
+              this.selectedNote = null;
+            },
+            err => {
+              console.log(err);
+            }
+          );
         this.showDialog = false;
 
     }

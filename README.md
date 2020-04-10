@@ -3,7 +3,7 @@
 
 
 # LX Notepad
-Angular 2 Notepad
+Angular 2 Notepad with Firebase storage
 
 
 Build the project with
