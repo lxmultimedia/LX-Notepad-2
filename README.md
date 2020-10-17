@@ -8,7 +8,7 @@ Angular 2 Notepad with Firebase storage
 
 Build the project with
 
-      ng build --prod --base-href /***/***
+      ng build --prod --base-href /***/***/
 
 and upload to your webserver.
 

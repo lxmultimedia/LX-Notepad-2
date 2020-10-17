@@ -3,6 +3,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 @Component({
   selector: 'app-dialog',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css'],
   animations: [

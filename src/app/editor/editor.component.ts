@@ -3,6 +3,7 @@ import {Note} from '../models/note';
 
 @Component({
   selector: 'app-editor',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })

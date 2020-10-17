@@ -3,7 +3,8 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 @Component({
   selector: 'app-navbutton',
   templateUrl: './navbutton.component.html',
-  styleUrls: ['./navbutton.component.css']
+  styleUrls: ['./navbutton.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavbuttonComponent implements OnInit {
 
