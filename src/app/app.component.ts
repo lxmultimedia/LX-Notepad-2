@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Note} from './models/note';
 import {FirebaseService} from './services/firebase.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
     selector: 'app-root',
@@ -13,8 +15,21 @@ export class AppComponent implements OnInit {
     selectedNote: Note;
     showDialog = false;
 
-    constructor(private firebaseService: FirebaseService) {
+    constructor(private firebaseService: FirebaseService, private firebaseAuth: AngularFireAuth) {
+      // Sign in existing user
+      // it's hardcoded here: only 1 user
+      // this is a fake e-mail address
+      this.firebaseAuth.auth
+        .signInWithEmailAndPassword("afv1@gmx.net", "spiderman87_")
+        .then(value => {
+          console.log('logged in!');
+        })
+        .catch(err => {
+          console.log('Something went wrong:', err.message);
+        });
     }
+
+
 
     ngOnInit() {
       this.loadData();

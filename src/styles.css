@@ -1,4 +1,9 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
 body {
   padding: 15px;
@@ -35,4 +40,9 @@ body {
 
 .navbutton {
   border-radius: 4px !important;
+}
+
+app-navbutton {
+  margin-bottom: 10px;
+  display: inline-block;
 }
