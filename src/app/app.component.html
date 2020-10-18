@@ -1,11 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:left">
   <h1>
     {{appTitle}}
   </h1>
 </div>
 <h5>Please select or create a new sheet.</h5>
-
+<!-- Hello {{ (firebaseService.userData | async )?.email }} -->
 <section class="sectionnav">
   <app-navigation [notes]="notes" (noteclicked)="clickNote($event)" (removenote)="onModalSelect($event)" (addnote)="addNote()"></app-navigation>
 </section>

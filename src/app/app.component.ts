@@ -3,12 +3,12 @@ import {Note} from './models/note';
 import {FirebaseService} from './services/firebase.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
     appTitle = 'LX Note';
     notes: Note[] = [];
@@ -16,23 +16,16 @@ export class AppComponent implements OnInit {
     showDialog = false;
 
     constructor(private firebaseService: FirebaseService, private firebaseAuth: AngularFireAuth) {
-      // Sign in existing user
-      // it's hardcoded here: only 1 user
-      // this is a fake e-mail address
-      this.firebaseAuth.auth
-        .signInWithEmailAndPassword("afv1@gmx.net", "U8mIxBh-wOeV6")
-        .then(value => {
-          console.log('logged in!');
-        })
-        .catch(err => {
-          console.log('Something went wrong:', err.message);
-        });
     }
 
-
-
     ngOnInit() {
-      this.loadData();
+      this.firebaseService.login();
+
+      this.firebaseAuth.authState.subscribe(auth => {
+        if(auth) {
+          this.loadData();
+        }
+      });      
     }
 
     loadData() {
@@ -85,7 +78,6 @@ export class AppComponent implements OnInit {
             }
           );
         this.showDialog = false;
-
     }
 
     addNote(): void {
