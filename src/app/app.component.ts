@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       // it's hardcoded here: only 1 user
       // this is a fake e-mail address
       this.firebaseAuth.auth
-        .signInWithEmailAndPassword("afv1@gmx.net", "spiderman87_")
+        .signInWithEmailAndPassword("afv1@gmx.net", "U8mIxBh-wOeV6")
         .then(value => {
           console.log('logged in!');
         })
