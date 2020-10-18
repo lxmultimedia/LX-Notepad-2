@@ -1,5 +1,9 @@
 .navbuttonp {
-  margin: 0px;
+  margin: 0;
+}
+
+.navbuttongroup {
+	margin-bottom: 10px;
 }
 
 :host {

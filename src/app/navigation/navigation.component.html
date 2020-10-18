@@ -3,8 +3,10 @@
       <span *ngIf="notes.length > 0">
         <app-navbutton *ngFor="let note of notes" [notetitle]="note.title" (clickNote)="onClickNote(note)" (removeNote)="onRemoveNote(note)"></app-navbutton>
       </span>
-      <button type="button" class="btn btn-success btn-sm navbuttonp" (click)="onAddNote()">
-        <span class="fa fa-plus"></span>
-      </button>
+      <span class='navbuttongroup'>
+	      <button type="button" class="btn btn-success btn-sm navbuttonp" (click)="onAddNote()">
+	        <span class="fa fa-plus"></span>
+	      </button>
+	  </span>	
     </form>
 </nav>
